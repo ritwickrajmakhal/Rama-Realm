@@ -131,7 +131,7 @@ console.log(data.user.email)
                                 </div>
                                 <div className="mt-0.5 flex ml-auto justify-center items-center mb-1">
                                     <p className="text-base ">Forgot Password?</p>
-                                    <Link to="/Resetpassword">
+                                    <Link to="/forget-password">
                                         <p className="text-blue-400 hover:underline pl-[4px]">Reset it</p>
                                     </Link>
                                 </div>

@@ -1,30 +1,47 @@
-import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'; // Import axios
 import Navbar from '../Components/Bars/Navbar';
 import Footer from '../Components/LandingPage_components/Footer';
 
-const OtpVerification = () => {
+const ResetPassword = () => {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const location = useLocation();
     const navigate = useNavigate();
-    const { email } = location.state || {};
-    const [otp, setOtp] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [passwordsMatch, setPasswordsMatch] = useState(true);
+    const [code, setCode] = useState('');
+
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const codeParam = queryParams.get('code');
+        if (codeParam) {
+            setCode(codeParam);
+        } else {
+            toast.error('Invalid or missing code.');
+            navigate('/Login');
+        }
+    }, [location, navigate]);
 
     const handleotpverify = async (e) => {
         e.preventDefault();
         setIsLoading(true); // Show loading state
         try {
             // Verify OTP
-            const response = await axios.post('http://localhost:1000/verify-otp', { email, otp, newPassword });
-    
+            const response = await axios.post(`${BACKEND_URL}/api/auth/reset-password`, {
+                code: code,
+                password: newPassword,
+                passwordConfirmation: confirmPassword,
+            });
+            console.log(response);
+
             if (response.status === 200) {
                 // If OTP is verified and password changed, show success message
                 toast.success('Password changed successfully!');
@@ -40,41 +57,31 @@ const OtpVerification = () => {
             setIsLoading(false); // Hide loading state
         }
     };
-    
+
     const handleNewPasswordChange = (e) => {
         const newPass = e.target.value;
         setNewPassword(newPass);
         setPasswordsMatch(newPass === confirmPassword); // Check if passwords match
     };
-    
+
     const handleConfirmPasswordChange = (e) => {
         const confirmPass = e.target.value;
         setConfirmPassword(confirmPass);
         setPasswordsMatch(newPassword === confirmPass); // Check if passwords match
     };
-    
 
     return (
         <div>
             <Navbar />
             <div className='flex justify-center'>
                 <div>
-                    <img src="/images/Login.svg" alt="page for Login" className="w-[780px] h-[650px] bg-white" />
+                    <img src="img/reset-password.png" alt="page for Login" className="w-[780px] h-[650px] bg-white" />
                 </div>
-                <div className='flex justify-center'>
+                <div className='flex justify-center items-center'>
                     <div className="w-[750px] bg-[#dbe2ef]">
-                        <h1 className='text-6xl text-[#112d4e] text-center mt-[50px]'>Verify OTP</h1>
+                        <h1 className='text-5xl text-[#112d4e] text-center mt-[50px]'>Reset Your Password</h1>
                         <div className='ml-[100px] mt-[40px] w-[550px] text-[#112d4e] justify-center'>
                             <form onSubmit={handleotpverify}>
-                                <p className='mb-1'>Enter OTP</p>
-                                <input
-                                    type="text"
-                                    placeholder="OTP"
-                                    className="w-full mb-6 p-2 border rounded"
-                                    value={otp}
-                                    onChange={(e) => setOtp(e.target.value)}
-                                    required
-                                />
                                 <p className='mb-1'>Enter New Password</p>
                                 <div className="relative w-full mb-6">
                                     <input
@@ -130,4 +137,4 @@ const OtpVerification = () => {
     );
 };
 
-export default OtpVerification;
+export default ResetPassword;

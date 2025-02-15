@@ -9,8 +9,6 @@ import Contact from './pages/ContactPage';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
-import Resetpassword from './Pages/PasswordReset'
-import Otpverification from './Pages/OtpVerification';
 // importing Admin features
 import AdminHomepage from './Pages/Admin/AdminHomepage';
 import NotificationAdmin from './Pages/Admin/NotificationAdmin';
@@ -27,6 +25,9 @@ import Profile from './Pages/Learner/Profile';
 import Pricing from './Components/Pricing/Pricing';
 import Learnerpricing from './Pages/Learner/learnerpricing';
 import PageNotFound from './Pages/PageNotFound';
+import ForgetPassword from './Pages/ForgetPassword';
+import ResetPassword from './Pages/ResetPassword';
+
 function App() {
   return (
     <Router>
@@ -35,8 +36,8 @@ function App() {
         <Route path="/" element={<Landingpage />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/Resetpassword" element={<Resetpassword />} />
-        <Route path="/Otpverification" element={<Otpverification />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
 
