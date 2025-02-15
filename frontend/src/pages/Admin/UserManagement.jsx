@@ -9,6 +9,7 @@ import { Dashboard, Message, Settings, Help, AccountBalance, AutoStories, StarBo
 import { Box, List, ListItem, ListItemIcon, ListItemText, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, TextField, MenuItem, Select, FormControl, InputLabel, } from '@mui/material';
 
 const usermanagement = () => {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const location = useLocation();
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
@@ -31,7 +32,7 @@ const usermanagement = () => {
     const fetchUsers = async () => {
       setLoading(true); // Start loading indicator
       try {
-        const response = await fetch('http://localhost:1337/api/users'); // Assuming Strapi endpoint
+        const response = await fetch(`${BACKEND_URL}/api/users`); // Assuming Strapi endpoint
         const usersData = await response.json();
         setUsers(usersData); // Set the fetched users
       } catch (error) {
@@ -47,7 +48,7 @@ const usermanagement = () => {
   const handleBlockToggle = async (userId, isBlocked) => {
     try {
       console.log('Toggling block status for user:', userId);
-      const response = await axios.put(`http://localhost:1337/api/users/${userId}`, {
+      const response = await axios.put(`${BACKEND_URL}/api/users/${userId}`, {
         blocked: !isBlocked,
       });
 

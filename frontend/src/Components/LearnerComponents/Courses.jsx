@@ -6,6 +6,7 @@ import CardSkeleton from './CardSkeleton';
 import { toast } from 'react-toastify';
 
 const Courses = () => {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,7 +16,7 @@ const Courses = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await fetch('http://localhost:1337/api/create-courses?populate=*', {
+      const response = await fetch(`${BACKEND_URL}/api/create-courses?populate=*`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

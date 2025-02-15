@@ -95,7 +95,7 @@ const Profile = () => {
       }
 
       const response = await fetch(
-        `http://localhost:1337/api/users/${profileExists ? user.id : ''}`,
+        `${BACKEND_URL}/api/users/${profileExists ? user.id : ''}`,
         {
           method: profileExists ? 'PUT' : 'POST',
           body: formData,
