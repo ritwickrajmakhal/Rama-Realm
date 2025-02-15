@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import image1 from '../images/Register_Learners.svg';
 
 const Register = () => {
-    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [selectedOption, setSelectedOption] = useState('Learner');
     const [userType, setUserType] = useState('Learner');
     const [username, setUsername] = useState('');
