@@ -151,7 +151,7 @@ const CourseDetails = () => {
                       <div className="text-sm flex items-center gap-2">
                         📝 Course notes available -
                         <a
-                          href={`http://localhost:1337${course.attributes.Course_Notes.data.attributes.url}`}
+                          href={`${BACKEND_URL}${course.attributes.Course_Notes.data.attributes.url}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-500 hover:text-blue-700 underline"
@@ -172,7 +172,7 @@ const CourseDetails = () => {
               <CardContent className="p-4">
                 <div className="w-full aspect-video mb-4">
                   <ReactPlayer
-                    url={`http://localhost:1337${course?.attributes?.Course_trailer?.data?.attributes?.url}`}
+                    url={`${BACKEND_URL}${course?.attributes?.Course_trailer?.data?.attributes?.url}`}
                     width="100%"
                     height="100%"
                     controls={true}
@@ -201,7 +201,7 @@ const CourseDetails = () => {
                 </div>
               </CardContent>
               <CardFooter className="p-4">
-              <a className="block w-full" target="_blank" href="https://rama-realm.itch.io/vr-modern-room?secret=2JN0d6WuPzNAQJCwLDYC6lFBlwA">
+              <a className="block w-full" target="_blank" href={course?.attributes?.Course_VR_link}>
                 <Button
                   // onClick={handleEnrollCourse}
                   className="w-full bg-blue-500 text-white hover:bg-blue-600"

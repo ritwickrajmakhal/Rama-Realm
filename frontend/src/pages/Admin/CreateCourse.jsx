@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 const CreateCourse = () => {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const token = localStorage.getItem('token');
     const difficulties = ["Beginner", "Intermediate", "Advanced"];
     const navigate = useNavigate();
@@ -74,7 +75,7 @@ const CreateCourse = () => {
             if (!token) throw new Error("Unauthorized. Please log in again.");
     
             // Submit course data
-            const response = await fetch('http://localhost:1337/api/create-courses', {
+            const response = await fetch(`${BACKEND_URL}/api/create-courses`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -96,7 +97,7 @@ const CreateCourse = () => {
     
             if (formDataToUpload.has("files")) {
                 console.log("Starting file upload...");
-                const uploadResponse = await fetch("http://localhost:1337/api/upload", {
+                const uploadResponse = await fetch(`${BACKEND_URL}/api/upload`, {
                     method: "POST",
                     headers: { Authorization: `Bearer ${token}` },
                     body: formDataToUpload,
@@ -125,7 +126,7 @@ const CreateCourse = () => {
                     },
                 };
     
-                const updateResponse = await fetch(`http://localhost:1337/api/create-courses/${id}`, {
+                const updateResponse = await fetch(`${BACKEND_URL}/api/create-courses/${id}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
