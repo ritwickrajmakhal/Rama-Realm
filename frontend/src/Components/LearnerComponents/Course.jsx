@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 
 const Course = ({ courseId }) => {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [course, setCourse] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +14,7 @@ const Course = ({ courseId }) => {
     const fetchCourseDetails = async () => {
       try {
         const response = await fetch(
-          `http://localhost:1337/api/create-courses/${courseId}?populate=*`,
+          `${BACKEND_URL}/api/create-courses/${courseId}?populate=*`,
           {
             method: "GET",
             headers: {

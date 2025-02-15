@@ -74,8 +74,8 @@ const Features = () => {
        <BentoCardTilt className='border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]'>
          <BentoCard
           src="videos/feature-50.mp4"
-          title={<>Ra<b>n</b>dom T<b>i</b>tle</>}
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, iure quia."
+          tibtle={<><b>E</b>xper<b>i</b>ence the <b>R</b>ama<b>G</b>yana</>}
+          description=" Step into the world of the Rama Realm and embark on a captivating journey. Our VR experiences transport you to a realm of wonder, where you'll witness the power of learning in a whole new way."
           isComingSoon={true}
           />
        </BentoCardTilt>
@@ -83,24 +83,24 @@ const Features = () => {
          <BentoCardTilt className='bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2'>
              <BentoCard
               src="videos/feature-2.mp4"
-              title={<>Ra<b>n</b>dom T<b>i</b>tle 2</>}
-              description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, iure quia."
+              title={<><b>I</b>nte<b>r</b>active <b>S</b>torytell<b>i</b>ng</>}
+              description="Engage with the story through interactive elements and challenges.  Make key decisions, solve puzzles."
               isComingSoon={true}
              />
          </BentoCardTilt>
          <BentoCardTilt className='bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0'>
          <BentoCard
               src="videos/feature-3.mp4"
-              title={<>Ra<b>n</b>dom T<b>i</b>tle 3</>}
-              description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, iure quia."
+              title={<><b>D</b>eep<b>e</b>r U<b>n</b>derstandi<b>n</b>g</>}
+              description="Go beyond the text, theme and characters. Immerse yourself in the world through immersive VR exploration."
               isComingSoon={true}
             />   
          </BentoCardTilt>
          <BentoCardTilt className='bento-tilt_1 row-span-1 me-14 md:col-span-1 md:me-0'>
          <BentoCard
               src="videos/feature-4.mp4"
-              title={<>Ra<b>n</b>dom T<b>i</b>tle 4</>}
-              description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, iure quia."
+              title={<>L<b>e</b>arn By Do<b>i</b>ng</>}
+              description="Participate in virtual simulations, and interactive scenarios that bring the education to life"
               isComingSoon={true}
             />   
          </BentoCardTilt>

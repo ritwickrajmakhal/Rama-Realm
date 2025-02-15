@@ -4,6 +4,7 @@ import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
 
 const Dashboard = () => {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [stats, setStats] = useState({
     totalCourses: 0,
     publishedCourses: 0,
@@ -40,7 +41,7 @@ const Dashboard = () => {
     const fetchCourseCounts = async () => {
       try {
         // Fetch all courses from the Strapi API
-        const response = await fetch("http://localhost:1337/api/create-courses");
+        const response = await fetch(`${BACKEND_URL}/api/create-courses`);
         const data = await response.json();
 
         const courses = data?.data || [];
@@ -61,7 +62,7 @@ const Dashboard = () => {
     const fetchLearnerCount = async () => {
       try {
         // Fetch all users from the Strapi API
-        const response = await fetch("http://localhost:1337/api/users");
+        const response = await fetch(`${BACKEND_URL}/api/users`);
         const data = await response.json();
 
         // Count users with userType = "Learner"
