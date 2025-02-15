@@ -21,22 +21,22 @@ const Navbar = () => {
                     <ul className='flex gap-3 text-white '>
                     <li>
                             <Link to="/">
-                                <button className='bg-[#3f72af] inline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af] py-1.5 rounded px-3 text-lg'>Home</button>
+                                <button className='bg-[#3f72af] inline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af] py-1.5 rounded px-3 text-lg transform transition duration-300 hover:scale-105'>Home</button>
                             </Link>
                         </li>
                         <li>
                             <Link to="/About">
-                                <button className='bg-[#3f72af] nline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af]  py-1.5 rounded px-3 text-lg'>About</button>
+                                <button className='bg-[#3f72af] nline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af]  py-1.5 rounded px-3 text-lg transform transition duration-300 hover:scale-105'>About</button>
                             </Link>
                         </li>
                         <li>
                             <Link to="/Login">
-                                <button className='bg-[#3f72af] inline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af]  py-1.5 rounded px-3 text-lg'>Login</button>
+                                <button className='bg-[#3f72af] inline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af]  py-1.5 rounded px-3 text-lg transform transition duration-300 hover:scale-105'>Login</button>
                             </Link>
                         </li>
                         <li>
                             <Link to="/Register">
-                                <button className='bg-[#3f72af] inline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af]  py-1.5 rounded px-3 mr-5 text-lg'>Register</button>
+                                <button className='bg-[#3f72af] inline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af]  py-1.5 rounded px-3 mr-5 text-lg transform transition duration-300 hover:scale-105'>Register</button>
                             </Link>
                         </li>
                     </ul>

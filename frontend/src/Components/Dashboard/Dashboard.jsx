@@ -85,19 +85,19 @@ const Dashboard = () => {
       {/* Header Section */}
       <div className="grid grid-cols-4 gap-4 mb-6 ">
         {/* Stats Cards */}
-        <div className="p-4 bg-blue-600 text-white rounded-lg">
+        <div className="p-4 bg-blue-600 text-white rounded-lg transform transition duration-300 hover:scale-105">
           <h3 className="text-xl font-bold">{learnerCount}</h3>
           <p>Total Number of Learners</p>
         </div>
-        <div className="p-4 bg-green-500 text-white rounded-lg">
+        <div className="p-4 bg-green-500 text-white rounded-lg transform transition duration-300 hover:scale-105">
           <h3 className="text-xl font-bold">0</h3>
           <p>Total Revenue</p>
         </div>
-        <div className="p-4 bg-indigo-600 text-white rounded-lg">
+        <div className="p-4 bg-indigo-600 text-white rounded-lg transform transition duration-300 hover:scale-105">
           <h3 className="text-xl font-bold">0</h3>
           <p>Rating</p>
         </div>
-        <div className="p-4 bg-green-500 text-white rounded-lg">
+        <div className="p-4 bg-green-500 text-white rounded-lg transform transition duration-300 hover:scale-105">
           <h3 className="text-xl font-bold">{stats.publishedCourses}</h3>
           <p>Pulished Courses</p>
         </div>
@@ -116,7 +116,7 @@ const Dashboard = () => {
           {/* Summary */}
           <div className="w-1/3 pl-6">
             <div className="grid grid-cols-1 gap-4">
-              <div className="p-4 bg-white rounded-lg shadow-md">
+              <div className="p-4 bg-white rounded-lg shadow-md transform transition duration-300 hover:scale-105">
                 <h3 className="text-lg font-bold">Total course</h3>
                 <p className="text-2xl font-bold">{stats.totalCourses}</p>
               </div>
