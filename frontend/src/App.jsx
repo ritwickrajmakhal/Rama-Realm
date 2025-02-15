@@ -26,6 +26,7 @@ import CourseDetails from './Pages/Learner/CourseDetails';
 import Profile from './Pages/Learner/Profile';
 import Pricing from './Components/Pricing/Pricing';
 import Learnerpricing from './Pages/Learner/learnerpricing';
+import PageNotFound from './Pages/PageNotFound';
 function App() {
   return (
     <Router>
@@ -55,6 +56,7 @@ function App() {
         {/* implementing pricing features */}
         <Route path='/Pricing' element={<Pricing />} />
         <Route path="/learnerpricing" element={<Learnerpricing />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
   );
