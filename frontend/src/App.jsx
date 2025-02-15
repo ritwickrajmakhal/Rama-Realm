@@ -4,6 +4,8 @@ import { ToastContainer } from 'react-toastify';
 import Landingpage from './Pages/Landingpage';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
+import About from './Pages/About';
+import Contact from './pages/ContactPage';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
@@ -34,6 +36,9 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Resetpassword" element={<Resetpassword />} />
         <Route path="/Otpverification" element={<Otpverification />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Contact" element={<Contact />} />
+
         {/* importing Admin features */}
         <Route path="/Admin" element={<AdminHomepage />} />
         <Route path="/NotificationAdmin" element={<NotificationAdmin />} />
