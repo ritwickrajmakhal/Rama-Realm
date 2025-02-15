@@ -56,9 +56,7 @@ const CourseDetails = () => {
     window.scrollTo(0, 0); // Add this line at the start of the component
   }, []);
 
-  // const handleEnrollCourse = () => {
-  //   navigate('https://rama-realm.itch.io/vr-modern-room?secret=2JN0d6WuPzNAQJCwLDYC6lFBlwA');
-  // };
+  
 
   // Add loading state
   if (isLoading) {
