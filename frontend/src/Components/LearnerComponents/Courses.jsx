@@ -82,7 +82,7 @@ const Courses = () => {
                 )}
               </div>
 
-              <CardContent className="p-4">
+              <CardContent className="p-4 h-40">
                 {/* Course Title */}
                 <h3 className="text-xl font-semibold text-gray-900 mb-2 truncate">
                   {course.attributes.Course_Title}
