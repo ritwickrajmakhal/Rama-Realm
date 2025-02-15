@@ -280,7 +280,7 @@ const handleSubmit = async (e) => {
 
         <div className="flex-grow p-4">
           <Typography variant="h2" sx={{ marginTop: '20px' }}>Course Listings</Typography>
-          <div className="flex flex-wrap gap-5 ml-5 mt-10 justify-center">
+          <div className="flex flex-wrap gap-5 ml-5 mt-10 justify-center ">
             {Array.isArray(courseUpdates) && courseUpdates.length > 0 ? (
               courseUpdates.map((course) => (
                 <Card key={course.id} className='w-100'>
@@ -314,14 +314,14 @@ const handleSubmit = async (e) => {
 
                       <button
                         onClick={() => handleEdit(course)}  // Correct function for Edit
-                        className="px-4 py-2 bg-[#3f72af] text-white rounded-md shadow hover:bg-white hover:text-[#3f72af]"
+                        className="px-4 py-2 bg-[#3f72af] text-white rounded-md shadow hover:bg-white hover:text-[#3f72af] transform transition duration-300 hover:scale-105"
                       >
                         EDIT
                       </button>
 
                       {/* DETAILS BUTTON */}
                       <Button
-                        className="px-4 py-2 rounded-md shadow text-2xl hover:bg-white hover:text-[#3f72af]"
+                        className="px-4 py-2 rounded-md shadow text-2xl hover:bg-white hover:text-[#3f72af] transform transition duration-300 hover:scale-105"
                         onClick={(e) => handleEdit(course, true)} // Correct function for Details
                         sx={{
                           backgroundColor: '#3f72af',
@@ -337,7 +337,7 @@ const handleSubmit = async (e) => {
                           e.stopPropagation(); // Prevents the click from propagating to parent elements
                           handleClickOpen(course); // Open the Delete confirmation dialog
                         }}
-                        className="px-4 py-2 bg-red-500 text-white hover:bg-white hover:text-red-500 rounded-md shadow"
+                        className="px-4 py-2 bg-red-500 text-white hover:bg-white hover:text-red-500 rounded-md shadow transform transition duration-300 hover:scale-105"
                       >
                         DELETE
                       </button>

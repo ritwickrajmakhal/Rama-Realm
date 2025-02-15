@@ -22,12 +22,12 @@ const Navbar_Admin = () => {
                     <ul className='flex gap-3 text-white '>
                         <li>
                             <Link to="/CreateCourse">
-                                <button className='bg-[#3f72af] inline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af] py-1.5 rounded px-3 text-lg'>Add Course</button>
+                                <button className='bg-[#3f72af] inline-flex items-center gap-0.5 hover:bg-white hover:text-[#3f72af] py-1.5 rounded px-3 text-lg transform transition duration-300 hover:scale-105'>Add Course</button>
                             </Link>
                         </li>
                         <li>
                             <Link to="/">
-                                <button className='bg-red-500 inline-flex items-center gap-0.5 hover:bg-white hover:text-red-600  py-1.5 rounded px-4 text-lg mr-8'>Logout</button>
+                                <button className='bg-red-500 inline-flex items-center gap-0.5 hover:bg-white hover:text-red-600  py-1.5 rounded px-4 text-lg mr-8 transform transition duration-300 hover:scale-105'>Logout</button>
                             </Link>
                         </li>
                     </ul>
