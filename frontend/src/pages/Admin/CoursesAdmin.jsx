@@ -19,6 +19,7 @@ const CoursesAdmin = () => {
   const location = useLocation(); // Get the current route
   const navigate = useNavigate(); // Navigate programmatically
   const [isPublished, setIsPublished] = useState(true); // Default state: Published
+  const [readOnly, setReadOnly] = useState(false);
   const [originalCourseDetails, setOriginalCourseDetails] = useState({
     name: '',
     duration: '',
@@ -84,10 +85,10 @@ const CoursesAdmin = () => {
   };
 
   // In your handleEdit function, set the original course details
-const handleEdit = async (course) => {
+const handleEdit = async (course, readOnly = false) => {
   setSelectedCourse(course); // Set the course to be edited
   setIsLoading(true); // Set loading state to true while fetching data
-
+  setReadOnly(readOnly);
   try {
     // Fetch the full details of the course, including trailer and notes
     const response = await axios.get(`http://localhost:1337/api/create-courses/${course.id}`, {
@@ -131,12 +132,12 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   const dataToSend = {
-    title: courseDetails.name || originalCourseDetails.name,
-    duration: courseDetails.duration || originalCourseDetails.duration,
-    description: courseDetails.description || originalCourseDetails.description,
-    subject: courseDetails.subject || originalCourseDetails.subject,
-    difficulty: courseDetails.difficulty || originalCourseDetails.difficulty,
-    vrlink: courseDetails.vrlink || originalCourseDetails.vrlink
+    Course_Title: courseDetails.name || originalCourseDetails.name,
+    Course_Duration: courseDetails.duration || originalCourseDetails.duration,
+    Course_Description: courseDetails.description || originalCourseDetails.description,
+    Course_Subject: courseDetails.subject || originalCourseDetails.subject,
+    Course_Difficulty: courseDetails.difficulty || originalCourseDetails.difficulty,
+    Course_VR_link: courseDetails.vrlink || originalCourseDetails.vrlink
   };
 
   console.log("Data to send:", dataToSend);
@@ -144,12 +145,7 @@ const handleSubmit = async (e) => {
   try {
     const response = await axios.put(
       `http://localhost:1337/api/create-courses/${courseDetails.id}`,
-      { data: dataToSend },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
+      { data: dataToSend }
     );
 
     console.log('Course updated successfully:', response.data);
@@ -324,17 +320,16 @@ const handleSubmit = async (e) => {
                       </button>
 
                       {/* DETAILS BUTTON */}
-                      <Link to={`/details/${course.id}`}>
-                        <Button
-                          className="px-4 py-2 rounded-md shadow text-2xl hover:bg-white hover:text-[#3f72af]"
-                          sx={{
-                            backgroundColor: '#3f72af',
-                            color: 'white',
-                          }}
-                        >
-                          DETAILS
-                        </Button>
-                      </Link>
+                      <Button
+                        className="px-4 py-2 rounded-md shadow text-2xl hover:bg-white hover:text-[#3f72af]"
+                        onClick={(e) => handleEdit(course, true)} // Correct function for Details
+                        sx={{
+                          backgroundColor: '#3f72af',
+                          color: 'white',
+                        }}
+                      >
+                        DETAILS
+                      </Button>
 
                       {/* DELETE BUTTON */}
                       <button
@@ -359,22 +354,25 @@ const handleSubmit = async (e) => {
           </div>
 
           <Dialog open={Boolean(selectedCourse)} onClose={() => setSelectedCourse(null)}>
-            <DialogTitle className='text-3xl'>Edit Course</DialogTitle>
+            <DialogTitle className='text-3xl'>{readOnly ? 'Course Details' : 'Edit Course'}</DialogTitle>
             <div>
             <DialogContent className='p-4 flex flex-wrap gap-2.5'>
               <TextField
+                disabled={readOnly}
                 label="Course Name"
                 value={courseDetails.name || ''}
                 onChange={(e) => setCourseDetails({ ...courseDetails, name: e.target.value })}
                 fullWidth
               />
               <TextField
+                disabled={readOnly}
                 label="Duration (in hours)"
                 value={courseDetails.duration || ''}
                 onChange={(e) => setCourseDetails({ ...courseDetails, duration: e.target.value })}
                 fullWidth
               />
               <TextField
+                disabled={readOnly}
                 label="Description"
                 value={courseDetails.description || ''}
                 onChange={(e) => setCourseDetails({ ...courseDetails, description: e.target.value })}
@@ -383,18 +381,21 @@ const handleSubmit = async (e) => {
                 rows={4}
               />
               <TextField
+                disabled={readOnly}
                 label="Subject"
                 value={courseDetails.subject || ''}
                 onChange={(e) => setCourseDetails({ ...courseDetails, subject: e.target.value })}
                 fullWidth
               />
               <TextField
+                disabled={readOnly}
                 label="Difficulty"
                 value={courseDetails.difficulty || ''}
                 onChange={(e) => setCourseDetails({ ...courseDetails, difficulty: e.target.value })}
                 fullWidth
               />
               <TextField
+                disabled={readOnly}
                 label="VR link"
                 value={courseDetails.vrlink || ''}
                 onChange={(e) => setCourseDetails({ ...courseDetails, VR_Link: e.target.value })}
@@ -404,10 +405,10 @@ const handleSubmit = async (e) => {
 
             </DialogContent>
             </div>
-            <DialogActions>
+            {!readOnly && <DialogActions>
               <Button onClick={() => setSelectedCourse(null)} sx={{ color: 'red' }}>Cancel</Button>
               <Button onClick={handleSubmit} color="primary">Save</Button>
-            </DialogActions>
+            </DialogActions>}
           </Dialog>
 
 
