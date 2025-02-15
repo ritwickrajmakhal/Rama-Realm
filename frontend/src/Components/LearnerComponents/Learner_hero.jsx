@@ -4,6 +4,7 @@ import Typed from "typed.js"
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from "react-router-dom"
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -117,16 +118,17 @@ const Learner_hero = () => {
 
             {/* Button with hover effects */}
             <div>
-              <button 
+              <a 
+                href={'#courses'}
                 className="bg-blue-50 text-black font-medium 
                          py-4 px-8 rounded-full 
                          hover:bg-white hover:text-violet-500 
-                         transform hover:scale-105 transition-all duration-300
+                         transform hover:scale-105 transition-all duration-700
                          shadow-lg hover:shadow-xl
                          border border-transparent hover:border-violet-300"
               >
                 Explore Courses
-              </button>
+              </a>
             </div>
 
             {/* Typed Text */}
