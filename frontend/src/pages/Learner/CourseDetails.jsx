@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 
 const CourseDetails = () => {
   // Add necessary state and hooks
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const params = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);

@@ -10,7 +10,7 @@ import Learnernavbar from "@/Components/LearnerComponents/Learnernavbar";
 import Footer from "@/Components/LearnerComponents/Footer_learner";
 
 const Profile = () => {
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [isEditing, setIsEditing] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
