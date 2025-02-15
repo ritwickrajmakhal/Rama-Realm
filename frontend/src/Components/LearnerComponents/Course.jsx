@@ -8,7 +8,7 @@ const Course = ({ courseId }) => {
   const [course, setCourse] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [courseProgress, setCourseProgress] = useState(0.35); 
   useEffect(() => {
     const fetchCourseDetails = async () => {
       try {
