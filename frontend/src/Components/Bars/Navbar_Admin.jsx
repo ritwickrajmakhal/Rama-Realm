@@ -26,7 +26,7 @@ const Navbar_Admin = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/About">
+                            <Link to="/">
                                 <button className='bg-red-500 inline-flex items-center gap-0.5 hover:bg-white hover:text-red-600  py-1.5 rounded px-4 text-lg mr-8'>Logout</button>
                             </Link>
                         </li>

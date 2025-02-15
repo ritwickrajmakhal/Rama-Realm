@@ -65,11 +65,11 @@ const Learnernavbar = () => {
                          </div>
                          <div className='flex h-full items-center'>
                               <Link to={"/Learnerpricing"}>
-                              <Button
-                                   id="Course-button"
-                                   title="Pricing"
-                                   rightIcon={<FaCrown style={{color: "#FFD43B"}} />}
-                                   containerClass="bg-blue-50 text-black md:flex hidden items-center justify-center gap-1"
+                                   <Button
+                                        id="Course-button"
+                                        title="Pricing"
+                                        rightIcon={<FaCrown style={{ color: "#FFD43B" }} />}
+                                        containerClass="bg-blue-50 text-black md:flex hidden items-center justify-center gap-1"
                                    />
                               </Link>
                               <div className='hidden md:block'>
@@ -130,7 +130,9 @@ const Learnernavbar = () => {
                                              <DropdownMenuSeparator />
                                              <DropdownMenuItem className="text-red-600">
                                                   <LogOut className="mr-2 h-4 w-4" />
-                                                  <span>Log out</span>
+                                                  <Link to="/">
+                                                       <span>Log out</span>
+                                                  </Link>
                                              </DropdownMenuItem>
                                         </DropdownMenuContent>
                                    </DropdownMenu>
