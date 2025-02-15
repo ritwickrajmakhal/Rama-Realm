@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../Components/Bars/Navbar';
 import Footer from '../Components/LandingPage_components/Footer';
 import { Oval } from 'react-loader-spinner'; // Import loader
 import { toast } from 'react-toastify'; // Import Toastify
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 
-const Resetpassword = () => {
+const ForgetPassword = () => {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false); // State for loader
-    const navigate = useNavigate(); // Use useNavigate to programmatically navigate
 
     const handleSendOTP = async (e) => {
         e.preventDefault();
         setLoading(true); // Show loader when starting request
         try {
-            const response = await fetch('http://localhost:1000/send-otp', {
+            const response = await fetch(`${BACKEND_URL}/api/auth/forgot-password`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email }), // Use the email from state
@@ -24,14 +24,12 @@ const Resetpassword = () => {
             // Check if the response was successful
             if (!response.ok) {
                 const errorData = await response.json(); // Fetch error details if available
-                throw new Error(errorData.message || 'Failed to send OTP.');
+                toast.error(`An error occurred: ${errorData.message}`); // Display error message
             }
 
             // Handle successful response
-            toast.success('OTP sent successfully! Check your email.');
-            navigate('/Otpverification', { state: { email } }); // Pass email in state
+            toast.success('Reset link sent successfully!');
         } catch (error) {
-            console.error('Error:', error);
             toast.error(`An error occurred: ${error.message}`);
         } finally {
             setLoading(false); // Hide loader after request is complete
@@ -42,8 +40,8 @@ const Resetpassword = () => {
         <div>
             <Navbar />
             <div className='flex justify-center'>
-                <div>
-                    <img src="/images/Login.svg" alt="page for Login" className="w-[780px] h-[650px] bg-white" />
+                <div className='border-r-2 border-[#112d4e] h-[650px] w-[780px]'>
+                    <img src="img/reset-password.png" alt="page for Login" className="w-[780px] h-[650px]" />
                 </div>
                 {/* Reset Password Box */}
                 <div className="w-[750px] bg-[#dbe2ef]">
@@ -96,4 +94,4 @@ const Resetpassword = () => {
     );
 };
 
-export default Resetpassword;
+export default ForgetPassword;
