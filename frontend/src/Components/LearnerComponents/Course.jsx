@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Card, { CardContent } from "@/components/ui/card";
+import Card, { CardContent } from "@/Components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/Components/ui/badge";
 
 const Course = ({ courseId }) => {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
