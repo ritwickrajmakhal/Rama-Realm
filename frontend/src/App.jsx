@@ -1,32 +1,32 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import Landingpage from './Pages/Landingpage';
-import Register from './Pages/Register';
-import Login from './Pages/Login';
-import About from './Pages/About';
+import Landingpage from './pages/Landingpage';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import About from './pages/About';
 import Contact from './pages/ContactPage';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 // importing Admin features
-import AdminHomepage from './Pages/Admin/AdminHomepage';
-import NotificationAdmin from './Pages/Admin/NotificationAdmin';
-import AdminCourses from './Pages/Admin/CoursesAdmin';
-import RatingAdmin from './Pages/Admin/RatingAdmin';
-import RevenueAdmin from './Pages/Admin/RevenueAdmin';
-import UserManagement from './Pages/Admin/UserManagement';
-import AdminHelpcenter from './Pages/Admin/HelpcenterAdmin';
-import CreateCourse from './Pages/Admin/CreateCourse';
+import AdminHomepage from './pages/Admin/AdminHomepage';
+import NotificationAdmin from './pages/Admin/NotificationAdmin';
+import AdminCourses from './pages/Admin/CoursesAdmin';
+import RatingAdmin from './pages/Admin/RatingAdmin';
+import RevenueAdmin from './pages/Admin/RevenueAdmin';
+import UserManagement from './pages/Admin/UserManagement';
+import AdminHelpcenter from './pages/Admin/HelpcenterAdmin';
+import CreateCourse from './pages/Admin/CreateCourse';
 // importing Learner features
-import LearnerHomepage from './Pages/Learner/LearnerHomepage';
-import CourseDetails from './Pages/Learner/CourseDetails';
-import Profile from './Pages/Learner/Profile';
+import LearnerHomepage from './pages/Learner/LearnerHomepage';
+import CourseDetails from './pages/Learner/CourseDetails';
+import Profile from './pages/Learner/Profile';
 import Pricing from './Components/Pricing/Pricing';
-import Learnerpricing from './Pages/Learner/learnerpricing';
-import PageNotFound from './Pages/PageNotFound';
-import ForgetPassword from './Pages/ForgetPassword';
-import ResetPassword from './Pages/ResetPassword';
+import Learnerpricing from './pages/Learner/Learnerpricing';
+import PageNotFound from './pages/PageNotFound';
+import ForgetPassword from './pages/ForgetPassword';
+import ResetPassword from './pages/ResetPassword';
 
 function App() {
   return (
