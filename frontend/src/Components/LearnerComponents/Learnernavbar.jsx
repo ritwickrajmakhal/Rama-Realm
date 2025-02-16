@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { Link } from "react-router-dom";
 import { Avatar } from '../ui/avatar';
 import { LogOut, User, Settings, Library } from 'lucide-react';
-import { AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { AvatarFallback, AvatarImage } from "@/Components/ui/avatar"
 import { FaCrown } from "react-icons/fa";
 import {
      DropdownMenu,

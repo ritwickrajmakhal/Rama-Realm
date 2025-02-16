@@ -1,4 +1,3 @@
-import Button from './Button'
 import AnimatedTitle from './AnimatedTitle'
 import { Link } from 'react-router-dom'
 const ImageClipBoxer = ({ src, clipClass }) => {

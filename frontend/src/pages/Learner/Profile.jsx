@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
+import { Button } from "@/Components/ui/button";
+import { Input } from "@/Components/ui/input";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { FiUser, FiMail, FiEdit3, FiSave, FiX } from "react-icons/fi";
@@ -122,7 +121,7 @@ const Profile = () => {
       className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100"
     >
       <Learnernavbar />
-      
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
